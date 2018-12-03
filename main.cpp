@@ -11,11 +11,7 @@ bool S_Check(string word){
     int po = 0;
     //cek apakah word ada di kamus.
     while(!cek && (po <= 5)){
-        bool sama = true;
-        for(int i = 0; i < kamus[po].size(); i++){
-            sama = sama && word[i] && kamus[po][i];
-        }
-        cek = cek or sama;
+        cek = kamus[po] == word;
         po++;
     }
     return cek;
@@ -23,7 +19,7 @@ bool S_Check(string word){
 bool P_Check(string word){
     bool cek = false;
     //kamus_subject should only contain lower case words.
-    string kamus[5] = {"membeli","mengendarai","meminjam","memperbaiki","menyewa"};
+    string kamus[5] = {"membeli","belanja","makan","berlari","pergi"};
     //membuat "po" sebagai pointer.
     int po = 0;
     //cek apakah word ada di kamus.
@@ -57,7 +53,7 @@ bool O_Check(string word){
 bool K_Check(string word){
     bool cek = false;
     //kamus_subject should only contain lower case words.
-    string kamus[5] = {"bekas","deflasi","baru","gajian","taman"};//belum di ganti.
+    string kamus[5] = {"sejam","setiap hari","pada pagi hari","larut malam","di taman"};//belum di ganti.
     //membuat "po" sebagai pointer.
     int po = 0;
     //cek apakah word ada di kamus.
@@ -90,30 +86,16 @@ char WordCheck(string word){
   }
 }
 
+
+
 void checkEveryWord(vector<string> v){
-    for (int i = 0; i < v.size(); i++) 
-        cout << WordCheck(v[i]) << " "; 
+    for (int i = 0; i < v.size(); i++)
+        cout << WordCheck(v[i]) << " ";
 }
 
 void showAllWords(vector<string> v){
-    for (int i = 0; i < v.size(); i++) 
-        cout << v[i] << " "; 
-}
-
-vector<string> stopwordRemove(vector<string> v){
-    /* vector<string> stopword = {'yang', 'untuk', 'pada', 'ke', 'para', 'namun', 'menurut', 'antara', 'dia', 'dua', 'ia', 'seperti', 'jika',
-                                'sehingga', 'kembali', 'dan', 'tidak', 'ini', 'karena', 'kepada', 'oleh', 'saat', 'harus', 'sementara', 
-                                'setelah', 'belum', 'kami', 'sekitar', 'bagi', 'serta', 'di', 'dari', 'telah', 'sebagai', 'masih', 'hal', 
-                                'ketika', 'adalah', 'itu', 'dalam', 'bisa', 'bahwa', 'atau', 'hanya', 'kita', 'dengan', 'akan', 'juga', 'ada', 
-                                'mereka', 'sudah', 'saya', 'terhadap', 'secara', 'agar', 'lain', 'anda', 'begitu', 'mengapa', 'kenapa', 'yaitu', 
-                                'yakni', 'daripada', 'itulah', 'lagi', 'maka', 'tentang', 'demi', 'dimana', 'kemana', 'pula', 'sambil', 'sebelum', 
-                                'sesudah', 'supaya', 'guna', 'kah', 'pun', 'sampai', 'sedangkan', 'selagi', 'sementara', 'tetapi', 'apakah', 
-                                'kecuali', 'sebab', 'selain', 'seolah', 'seraya', 'seterusnya', 'tanpa', 'agak', 'boleh', 'dapat', 'dsb', 'dst', 'dll',
-                                'dahulu', 'dulunya', 'anu', 'demikian', 'tapi', 'ingin', 'juga', 'nggak', 'mari', 'nanti', 'melainkan', 'oh', 'ok', 
-                                'seharusnya', 'sebetulnya', 'setiap', 'setidaknya', 'sesuatu', 'pasti', 'saja', 'toh', 'ya', 'walau', 'tolong', 'tentu', 
-                                'amat', 'apalagi', 'bagaimanapun'};*/
-
-    
+    for (int i = 0; i < v.size(); i++)
+        cout << v[i] << " ";
 }
 
 vector<string> tokenizer(string sentence){
@@ -138,9 +120,21 @@ vector<string> tokenizer(string sentence){
 int main()
 {
     string sentence;
-    cout << "silahkan masukkan kalimat tentang kendaraan :" << endl;
+    cout << "option of Subject" << endl;
+    cout << "saya - kita - kamu - malih - aridi" << endl;
+    cout<< " " <<endl;
+    cout << "option of Predicate" <<endl;
+    cout << "membeli - belanja - makan - berlari - pergi" << endl;
+    cout << " " << endl;
+    cout << "option of Object" << endl;
+    cout << "perahu - mobil - motor - pesawat - kereta" << endl;
+    cout << " " << endl;
+    cout << "option of keterangan" << endl;
+    cout << "sejam - setiap hari - pada pagi hari - larut malam - di taman" << endl;
+    cout << " " << endl;
+
+    cout << "Please input your sentence about vehicle below!!" << endl;
     getline(cin,sentence);
-    //showAllWords(tokenizer(sentence));
-    checkEveryWord(tokenizer(sentence)); 
+    checkEveryWord(tokenizer(sentence)); // hahahaha
     return 0;
 }
