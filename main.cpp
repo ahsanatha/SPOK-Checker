@@ -15,8 +15,8 @@ bool S_Check(string word){
         bool sama = true;
         for(int i = 0; i < kamus[po].size(); i++){
             sama = sama && word[i] && kamus[po][i];
+            cout << kamus[po] << " " << word << " " << sama;
         }
-        cout << kamus[po] << " " << word << " " << sama;
         cek = cek or sama;
         po++;
     }
@@ -25,7 +25,7 @@ bool S_Check(string word){
 bool P_Check(string word){
     bool cek = false;
     //kamus_subject should only contain lower case words.
-    string kamus[5] = {"membeli","belanja","makan","berlari","pergi"};
+    string kamus[5] = {"membeli","mengendarai","meminjam","memperbaiki","menyewa"};
     //membuat "po" sebagai pointer.
     int po = 0;
     //cek apakah word ada di kamus.
