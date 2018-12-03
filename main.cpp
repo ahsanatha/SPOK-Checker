@@ -28,7 +28,11 @@ bool P_Check(string word){
     int po = 0;
     //cek apakah word ada di kamus.
     while(!cek && (po <= 5)){
-        cek = kamus[po] == word;
+        bool sama = true;
+        for(int i = 0; i < kamus[po].size(); i++){
+            sama = sama && word[i] && kamus[po][i];
+        }
+        cek = cek or sama;
         po++;
     }
     return cek;
@@ -41,7 +45,11 @@ bool O_Check(string word){
     int po = 0;
     //cek apakah word ada di kamus.
     while(!cek && (po <= 5)){
-        cek = kamus[po] == word;
+        bool sama = true;
+        for(int i = 0; i < kamus[po].size(); i++){
+            sama = sama && word[i] && kamus[po][i];
+        }
+        cek = cek or sama;
         po++;
     }
     return cek;
@@ -54,7 +62,11 @@ bool K_Check(string word){
     int po = 0;
     //cek apakah word ada di kamus.
     while(!cek && (po <= 5)){
-        cek = kamus[po] == word;
+        bool sama = true;
+        for(int i = 0; i < kamus[po].size(); i++){
+            sama = sama && word[i] && kamus[po][i];
+        }
+        cek = cek or sama;
         po++;
     }
     return cek;
