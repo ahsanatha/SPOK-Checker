@@ -45,7 +45,7 @@ bool O_Check(string word){
 bool K_Check(string word){
     bool cek = false;
     //kamus_subject should only contain lower case words.
-    string kamus[5] = {"membeli","belanja","makan","berlari","pergi"};//belum di ganti.
+    string kamus[5] = {"sejam","setiap hari","pada pagi hari","larut malam","di taman"};//belum di ganti.
     //membuat "po" sebagai pointer.
     int po = 0;
     //cek apakah word ada di kamus.
@@ -60,7 +60,7 @@ bool K_Check(string word){
 int main()
 {
     string sentence;
-    cout << "Hello world!" << endl;
+    cout << "Hello world!" << endl1`
     string word;
     do{
         cin >> word;
