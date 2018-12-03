@@ -4,6 +4,7 @@ using namespace std;
 
 //a subject checker that will return true or false.
 bool S_Check(string word){
+   // cout << " : "  << word;
     bool cek = false;
     //kamus_subject should only contain lower case words.
     string kamus[5] = {"saya","kita","kamu","malih","aridi"};
@@ -11,7 +12,12 @@ bool S_Check(string word){
     int po = 0;
     //cek apakah word ada di kamus.
     while(!cek && (po <= 5)){
-        cek = kamus[po] == word;
+        bool sama = true;
+        for(int i = 0; i < kamus[po].size(); i++){
+            sama = sama && word[i] && kamus[po][i];
+        }
+        cout << kamus[po] << " " << word << " " << sama;
+        cek = cek or sama;
         po++;
     }
     return cek;
@@ -120,7 +126,7 @@ vector<string> tokenizer(string sentence){
 int main()
 {
     string sentence;
-    cout << "option of Subject" << endl;
+    /*cout << "option of Subject" << endl;
     cout << "saya - kita - kamu - malih - aridi" << endl;
     cout<< " " <<endl;
     cout << "option of Predicate" <<endl;
@@ -131,7 +137,7 @@ int main()
     cout << " " << endl;
     cout << "option of keterangan" << endl;
     cout << "sejam - setiap hari - pada pagi hari - larut malam - di taman" << endl;
-    cout << " " << endl;
+    cout << " " << endl;*/
 
     cout << "Please input your sentence about vehicle below!!" << endl;
     getline(cin,sentence);
