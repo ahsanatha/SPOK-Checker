@@ -74,14 +74,16 @@ char WordCheck(string word){
   }
 }
 
+
+
 void checkEveryWord(vector<string> v){
-    for (int i = 0; i < v.size(); i++) 
-        cout << WordCheck(v[i]) << " "; 
+    for (int i = 0; i < v.size(); i++)
+        cout << WordCheck(v[i]) << " ";
 }
 
 void showAllWords(vector<string> v){
-    for (int i = 0; i < v.size(); i++) 
-        cout << v[i] << " "; 
+    for (int i = 0; i < v.size(); i++)
+        cout << v[i] << " ";
 }
 
 vector<string> tokenizer(string sentence){
@@ -106,7 +108,7 @@ vector<string> tokenizer(string sentence){
 int main()
 {
     string sentence;
-    cout << "Hello world!" << endl;
+    cout << "Please input your sentence about vehicle below!!" << endl;
     getline(cin,sentence);
     checkEveryWord(tokenizer(sentence)); // hahahaha
     return 0;
