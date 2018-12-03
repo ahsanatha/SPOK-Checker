@@ -61,6 +61,7 @@ int main()
 {
     string sentence;
     cout << "Hello world!" << endl;
+    String word;
     do{
         cin >> word;
         if(S_Check(word))
