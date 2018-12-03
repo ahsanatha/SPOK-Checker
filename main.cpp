@@ -34,7 +34,7 @@ bool Check(string word, char x){
     return cek;
 }
 
-char WordCheck(string word){
+char tokenRecognizer(string word){
     bool sWord = Check(word,'s');
     bool pWord = Check(word,'p');
     bool oWord = Check(word,'o');
@@ -52,17 +52,23 @@ char WordCheck(string word){
   }
 }
 
-
-
-
-void tokenRecognition(vector<string> v){
-    for (int i = 0; i < v.size(); i++)
-        return WordCheck(v[i]);
+vector<char> convert(vector<string> v){
+    vector<char> c;
+    for(int i = 0l i < v.size(); i++){
+        c.push_back(tokenRecognizer(v[i]));
+    }
+    return c;
 }
 
 void showAllWords(vector<string> v){
     for (int i = 0; i < v.size(); i++)
         cout << v[i] << " ";
+}
+
+void showAllChar(vector<char> c){
+    for(int i = 0; i < c.size(); i++){
+        cout << 
+    }
 }
 
 vector<string> tokenizer(string sentence){
@@ -85,7 +91,6 @@ vector<string> tokenizer(string sentence){
 }
 
 
-
 int main()
 {
     /*cout << "option of Subject" << endl;
@@ -103,11 +108,6 @@ int main()
     string sentence;
     cout << "Please input your sentence about vehicle below!!" << endl;
     getline(cin,sentence);
-    vector<string> vtoken = tokenizer(sentence);
-    tokenRecognition(vtoken); // hahahaha
-    if(vtoken[0] = "s"){
-        cout << "tolak";
-    }  
-
+    pushDownA(sentence);
     return 0;
 }
