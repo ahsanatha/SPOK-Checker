@@ -108,7 +108,6 @@ int main()
     string sentence;
     cout << "Hello world!" << endl;
     getline(cin,sentence);
-    checkEveryWord(tokenizer(sentence));
-
+    checkEveryWord(tokenizer(sentence)); // hahahaha
     return 0;
 }
