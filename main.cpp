@@ -6,7 +6,7 @@ using namespace std;
 bool S_Check(string word){
     bool cek = false;
     //kamus_subject should only contain lower case words.
-    string kamus[5] = {"saya","kamu","dia","mereka","kami"};
+    string kamus[5] = {"saya","kita","kamu","malih","aridi"};
     //membuat "po" sebagai pointer.
     int po = 0;
     //cek apakah word ada di kamus.
@@ -59,7 +59,7 @@ bool K_Check(string word){
 
 int main()
 {
-    string word;
+    string sentence;
     cout << "Hello world!" << endl;
     do{
         cin >> word;
