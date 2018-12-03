@@ -56,6 +56,24 @@ bool K_Check(string word){
     return cek;
 }
 
+char WordCheck(string word){
+    bool sWord = S_Check(word);
+    bool pWord = P_Check(word);
+    bool oWord = O_Check(word);
+    bool kWord = K_Check(word);
+  if ((sWord == true)&&(pWord == false) && (oWord == false) && (kWord == false)){
+    return 's';
+  }else if((sWord == false)&&(pWord == true) && (oWord == false) && (kWord == false)){
+    return 'p';
+  }else if((sWord == false)&&(pWord == false) && (oWord == true) && (kWord == false)){
+    return 'o';
+  }else if((sWord == false)&&(pWord == false) && (oWord == false) && (kWord == true)){
+    return 'k';
+  }else{
+    return 'e';
+  }
+}
+
 
 int main()
 {
