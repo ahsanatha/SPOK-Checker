@@ -52,12 +52,11 @@ char WordCheck(string word){
   }
 }
 
-
-
-
 void tokenRecognition(vector<string> v){
-    for (int i = 0; i < v.size(); i++)
-        return WordCheck(v[i]);
+    for (int i = 0; i < v.size(); i++){
+        cout << WordCheck(v[i]) << endl;
+
+      }
 }
 
 void showAllWords(vector<string> v){
@@ -105,9 +104,9 @@ int main()
     getline(cin,sentence);
     vector<string> vtoken = tokenizer(sentence);
     tokenRecognition(vtoken); // hahahaha
-    if(vtoken[0] = "s"){
-        cout << "tolak";
-    }  
+    // if(vtoken[0] == "s"){
+    //     cout << "tolak";
+    // }
 
     return 0;
 }
