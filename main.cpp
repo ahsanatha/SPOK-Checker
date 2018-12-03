@@ -74,18 +74,41 @@ char WordCheck(string word){
   }
 }
 
+void checkEveryWord(vector<string> v){
+    for (int i = 0; i < v.size(); i++) 
+        cout << WordCheck(v[i]) << " "; 
+}
+
+void showAllWords(vector<string> v){
+    for (int i = 0; i < v.size(); i++) 
+        cout << v[i] << " "; 
+}
+
+vector<string> tokenizer(string sentence){
+    vector<string> words;
+    string word = "";
+    int lenS = sentence.length();
+    int po = 0;
+    for(int i=0; i < lenS; i++){
+        if(sentence[po] != ' '){
+            word += sentence[po];
+
+        }else{
+            words.push_back(word);
+            word = "";
+        }
+        po++;
+    }
+    words.push_back(word);
+    return words;
+}
 
 int main()
 {
     string sentence;
-    cout << "Hello world!" << endl1`
-    string word;
-    do{
-        cin >> word;
-        if(S_Check(word))
-            cout << "terima" << endl;
-        else
-            cout << "tolak" << endl;
-    }while(word != "exit");
+    cout << "Hello world!" << endl;
+    getline(cin,sentence);
+    checkEveryWord(tokenizer(sentence));
+
     return 0;
 }
