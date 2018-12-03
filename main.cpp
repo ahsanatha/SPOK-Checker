@@ -32,7 +32,7 @@ bool P_Check(string word){
 bool O_Check(string word){
     bool cek = false;
     //kamus_subject should only contain lower case words.
-    string kamus[5] = {"membeli","belanja","makan","berlari","pergi"};//belum diganti
+    string kamus[5] = {"perahu","mobil","motor","pesawat","kereta"};
     //membuat "po" sebagai pointer.
     int po = 0;
     //cek apakah word ada di kamus.
