@@ -19,7 +19,7 @@ bool Check(string word, char x){
     //membuat "po" sebagai pointer.
     int po = 0;
     //cek apakah word ada di kamus.
-    while(!cek && (po <= 5)){
+    while(!cek && (po < 5)){
         bool sama = true;
         for(int i = 0; i < kamus[po].size(); i++){
             sama = sama && (word[i] == kamus[po][i]);
