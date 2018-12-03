@@ -108,6 +108,19 @@ vector<string> tokenizer(string sentence){
 int main()
 {
     string sentence;
+    cout << "option of Subject" << endl;
+    cout << "saya - kita - kamu - malih - aridi" << endl;
+    cout<< " " <<endl;
+    cout << "option of Predicate" <<endl;
+    cout << "membeli - belanja - makan - berlari - pergi" << endl;
+    cout << " " << endl;
+    cout << "option of Object" << endl;
+    cout << "perahu - mobil - motor - pesawat - kereta" << endl;
+    cout << " " << endl;
+    cout << "option of keterangan" << endl;
+    cout << "sejam - setiap hari - pada pagi hari - larut malam - di taman" << endl;
+    cout << " " << endl;
+
     cout << "Please input your sentence about vehicle below!!" << endl;
     getline(cin,sentence);
     checkEveryWord(tokenizer(sentence)); // hahahaha
