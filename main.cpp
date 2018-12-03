@@ -8,14 +8,18 @@ bool Check(string word, char x){
     bool cek = false;
     //kamus_subject should only contain lower case words.
     string kamus[5];
-    if(x == 's')
-        string kamus[5] = {"saya","kita","kamu","malih","aridi"};
-    else if (x == 'p')
-        string kamus[5] = {"membeli","mengendarai","meminjam","memperbaiki","menyewa"};
-    else if (x == 'o')
-        string kamus[5] = {"perahu","mobil","motor","pesawat","kereta"};
-    else if (x == 'k')
-        string kamus[5] = {"bekas","deflasi","baru","gajian","taman"};
+    if(x == 's'){
+        kamus[0]="saya"; kamus[1]="kita"; kamus[2]="kamu"; kamus[3]="malih"; kamus[4]="aridi";
+    }
+    else if (x == 'p'){
+        kamus[0]="membeli"; kamus[1]="mengendarai"; kamus[2]="meminjam"; kamus[3]="memperbaiki"; kamus[4]="menyewa";
+    }
+    else if (x == 'o'){
+        kamus[0]="perahu"; kamus[1]="mobil"; kamus[2]="motor"; kamus[3]="pesawat"; kamus[4]="kereta";
+    }
+    else if (x == 'k'){
+        kamus[0]="bekas"; kamus[1]="deflasi"; kamus[2]="baru"; kamus[3]="gajian"; kamus[4]="taman";
+    }
     //membuat "po" sebagai pointer.
     int po = 0;
     //cek apakah word ada di kamus.
@@ -50,9 +54,10 @@ char WordCheck(string word){
 
 
 
-void checkEveryWord(vector<string> v){
+
+void tokenRecognition(vector<string> v){
     for (int i = 0; i < v.size(); i++)
-        cout << WordCheck(v[i]) << " ";
+        return WordCheck(v[i]);
 }
 
 void showAllWords(vector<string> v){
@@ -79,9 +84,10 @@ vector<string> tokenizer(string sentence){
     return words;
 }
 
+
+
 int main()
 {
-    string sentence;
     /*cout << "option of Subject" << endl;
     cout << "saya - kita - kamu - malih - aridi" << endl;
     cout<< " " <<endl;
@@ -94,9 +100,14 @@ int main()
     cout << "option of keterangan" << endl;
     cout << "sejam - setiap hari - pada pagi hari - larut malam - di taman" << endl;
     cout << " " << endl;*/
-
+    string sentence;
     cout << "Please input your sentence about vehicle below!!" << endl;
     getline(cin,sentence);
-    checkEveryWord(tokenizer(sentence)); // hahahaha
+    vector<string> vtoken = tokenizer(sentence);
+    tokenRecognition(vtoken); // hahahaha
+    if(vtoken[0] = "s"){
+        cout << "tolak";
+    }  
+
     return 0;
 }
