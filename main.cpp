@@ -11,11 +11,11 @@ bool S_Check(string word){
     //membuat "po" sebagai pointer.
     int po = 0;
     //cek apakah word ada di kamus.
-    while(!cek && (po <= 5)){
+    while(!cek && (po < 5)){
         bool sama = true;
         for(int i = 0; i < kamus[po].size(); i++){
             sama = sama && word[i] && kamus[po][i];
-            cout << kamus[po] << " " << word << " " << sama;
+          //  cout << kamus[po] << " " << word << " " << sama;
         }
         cek = cek or sama;
         po++;
