@@ -11,7 +11,11 @@ bool S_Check(string word){
     int po = 0;
     //cek apakah word ada di kamus.
     while(!cek && (po <= 5)){
-        cek = kamus[po] == word;
+        bool sama = true;
+        for(int i = 0; i < kamus[po].size(); i++){
+            sama = sama && word[i] && kamus[po][i];
+        }
+        cek = cek or sama;
         po++;
     }
     return cek;
@@ -85,7 +89,7 @@ void showAllWords(vector<string> v){
 }
 
 vector<string> stopwordRemove(vector<string> v){
-    vector<string> stopword = {'yang', 'untuk', 'pada', 'ke', 'para', 'namun', 'menurut', 'antara', 'dia', 'dua', 'ia', 'seperti', 'jika',
+    /* vector<string> stopword = {'yang', 'untuk', 'pada', 'ke', 'para', 'namun', 'menurut', 'antara', 'dia', 'dua', 'ia', 'seperti', 'jika',
                                 'sehingga', 'kembali', 'dan', 'tidak', 'ini', 'karena', 'kepada', 'oleh', 'saat', 'harus', 'sementara', 
                                 'setelah', 'belum', 'kami', 'sekitar', 'bagi', 'serta', 'di', 'dari', 'telah', 'sebagai', 'masih', 'hal', 
                                 'ketika', 'adalah', 'itu', 'dalam', 'bisa', 'bahwa', 'atau', 'hanya', 'kita', 'dengan', 'akan', 'juga', 'ada', 
@@ -95,7 +99,7 @@ vector<string> stopwordRemove(vector<string> v){
                                 'kecuali', 'sebab', 'selain', 'seolah', 'seraya', 'seterusnya', 'tanpa', 'agak', 'boleh', 'dapat', 'dsb', 'dst', 'dll',
                                 'dahulu', 'dulunya', 'anu', 'demikian', 'tapi', 'ingin', 'juga', 'nggak', 'mari', 'nanti', 'melainkan', 'oh', 'ok', 
                                 'seharusnya', 'sebetulnya', 'setiap', 'setidaknya', 'sesuatu', 'pasti', 'saja', 'toh', 'ya', 'walau', 'tolong', 'tentu', 
-                                'amat', 'apalagi', 'bagaimanapun'};
+                                'amat', 'apalagi', 'bagaimanapun'};*/
 
     
 }
@@ -124,6 +128,7 @@ int main()
     string sentence;
     cout << "silahkan masukkan kalimat tentang kendaraan :" << endl;
     getline(cin,sentence);
-    checkEveryWord(tokenizer(sentence)); // hahahaha
+    //showAllWords(tokenizer(sentence));
+    checkEveryWord(tokenizer(sentence)); 
     return 0;
 }
