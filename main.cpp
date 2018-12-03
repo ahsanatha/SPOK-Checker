@@ -59,7 +59,7 @@ bool K_Check(string word){
 
 int main()
 {
-    string sentence;
+    string word;
     cout << "Hello world!" << endl;
     String word;
     do{
@@ -69,5 +69,7 @@ int main()
         else
             cout << "tolak" << endl;
     }while(word != "exit");
+
+
     return 0;
 }
