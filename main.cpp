@@ -3,70 +3,26 @@
 using namespace std;
 
 //a subject checker that will return true or false.
-bool S_Check(string word){
+bool Check(string word, char x){
    // cout << " : "  << word;
     bool cek = false;
     //kamus_subject should only contain lower case words.
-    string kamus[5] = {"saya","kita","kamu","malih","aridi"};
+    string kamus[5];
+    if(x == 's')
+        string kamus[5] = {"saya","kita","kamu","malih","aridi"};
+    else if (x == 'p')
+        string kamus[5] = {"membeli","mengendarai","meminjam","memperbaiki","menyewa"};
+    else if (x == 'o')
+        string kamus[5] = {"perahu","mobil","motor","pesawat","kereta"};
+    else if (x == 'k')
+        string kamus[5] = {"bekas","deflasi","baru","gajian","taman"};
     //membuat "po" sebagai pointer.
     int po = 0;
     //cek apakah word ada di kamus.
     while(!cek && (po <= 5)){
         bool sama = true;
         for(int i = 0; i < kamus[po].size(); i++){
-            sama = sama && word[i] && kamus[po][i];
-            cout << kamus[po] << " " << word << " " << sama;
-        }
-        cek = cek or sama;
-        po++;
-    }
-    return cek;
-}
-bool P_Check(string word){
-    bool cek = false;
-    //kamus_subject should only contain lower case words.
-    string kamus[5] = {"membeli","mengendarai","meminjam","memperbaiki","menyewa"};
-    //membuat "po" sebagai pointer.
-    int po = 0;
-    //cek apakah word ada di kamus.
-    while(!cek && (po <= 5)){
-        bool sama = true;
-        for(int i = 0; i < kamus[po].size(); i++){
-            sama = sama && word[i] && kamus[po][i];
-        }
-        cek = cek or sama;
-        po++;
-    }
-    return cek;
-}
-bool O_Check(string word){
-    bool cek = false;
-    //kamus_subject should only contain lower case words.
-    string kamus[5] = {"perahu","mobil","motor","pesawat","kereta"};
-    //membuat "po" sebagai pointer.
-    int po = 0;
-    //cek apakah word ada di kamus.
-    while(!cek && (po <= 5)){
-        bool sama = true;
-        for(int i = 0; i < kamus[po].size(); i++){
-            sama = sama && word[i] && kamus[po][i];
-        }
-        cek = cek or sama;
-        po++;
-    }
-    return cek;
-}
-bool K_Check(string word){
-    bool cek = false;
-    //kamus_subject should only contain lower case words.
-    string kamus[5] = {"bekas","deflasi","baru","gajian","taman"};
-    //membuat "po" sebagai pointer.
-    int po = 0;
-    //cek apakah word ada di kamus.
-    while(!cek && (po <= 5)){
-        bool sama = true;
-        for(int i = 0; i < kamus[po].size(); i++){
-            sama = sama && word[i] && kamus[po][i];
+            sama = sama && (word[i] == kamus[po][i]);
         }
         cek = cek or sama;
         po++;
@@ -75,17 +31,17 @@ bool K_Check(string word){
 }
 
 char WordCheck(string word){
-    bool sWord = S_Check(word);
-    bool pWord = P_Check(word);
-    bool oWord = O_Check(word);
-    bool kWord = K_Check(word);
-  if ((sWord == true)&&(pWord == false) && (oWord == false) && (kWord == false)){
+    bool sWord = Check(word,'s');
+    bool pWord = Check(word,'p');
+    bool oWord = Check(word,'o');
+    bool kWord = Check(word,'k');
+  if (sWord){
     return 's';
-  }else if((sWord == false)&&(pWord == true) && (oWord == false) && (kWord == false)){
+  }else if(pWord){
     return 'p';
-  }else if((sWord == false)&&(pWord == false) && (oWord == true) && (kWord == false)){
+  }else if(oWord){
     return 'o';
-  }else if((sWord == false)&&(pWord == false) && (oWord == false) && (kWord == true)){
+  }else if(kWord){
     return 'k';
   }else{
     return 'e';
