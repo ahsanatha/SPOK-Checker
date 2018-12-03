@@ -34,7 +34,7 @@ bool Check(string word, char x){
     return cek;
 }
 
-char tokenRecognizer(string word){
+char WordCheck(string word){
     bool sWord = Check(word,'s');
     bool pWord = Check(word,'p');
     bool oWord = Check(word,'o');
@@ -52,31 +52,15 @@ char tokenRecognizer(string word){
   }
 }
 
-<<<<<<< HEAD
 void tokenRecognition(vector<string> v){
     for (int i = 0; i < v.size(); i++){
         cout << WordCheck(v[i]) << endl;
-
       }
-=======
-vector<char> convert(vector<string> v){
-    vector<char> c;
-    for(int i = 0l i < v.size(); i++){
-        c.push_back(tokenRecognizer(v[i]));
-    }
-    return c;
->>>>>>> 03a35d8ff59ee849c2f1123ee4a9d93a4f4467e5
 }
 
 void showAllWords(vector<string> v){
     for (int i = 0; i < v.size(); i++)
         cout << v[i] << " ";
-}
-
-void showAllChar(vector<char> c){
-    for(int i = 0; i < c.size(); i++){
-        cout << 
-    }
 }
 
 vector<string> tokenizer(string sentence){
@@ -99,9 +83,10 @@ vector<string> tokenizer(string sentence){
 }
 
 
+
 int main()
 {
-    /*cout << "option of Subject" << endl;
+    cout << "option of Subject" << endl;
     cout << "saya - kita - kamu - malih - aridi" << endl;
     cout<< " " <<endl;
     cout << "option of Predicate" <<endl;
@@ -112,19 +97,15 @@ int main()
     cout << " " << endl;
     cout << "option of keterangan" << endl;
     cout << "sejam - setiap hari - pada pagi hari - larut malam - di taman" << endl;
-    cout << " " << endl;*/
+    cout << " " << endl;
     string sentence;
     cout << "Please input your sentence about vehicle below!!" << endl;
     getline(cin,sentence);
-<<<<<<< HEAD
     vector<string> vtoken = tokenizer(sentence);
     tokenRecognition(vtoken); // hahahaha
     // if(vtoken[0] == "s"){
     //     cout << "tolak";
     // }
 
-=======
-    pushDownA(sentence);
->>>>>>> 03a35d8ff59ee849c2f1123ee4a9d93a4f4467e5
     return 0;
 }
