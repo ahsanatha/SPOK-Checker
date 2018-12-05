@@ -25,8 +25,11 @@ bool Check(string word, char x){
     //cek apakah word ada di kamus.
     while(!cek && (po < 5)){
         bool sama = true;
+        int count;
         for(int i = 0; i < kamus[po].size(); i++){
             sama = sama && (word[i] == kamus[po][i]);
+            if(word[i] != kamus[po][i])
+                break;
         }
         cek = cek or sama;
         po++;
@@ -35,18 +38,14 @@ bool Check(string word, char x){
 }
 
 char tokenRecognizer(string word){
-    bool sWord = Check(word,'s');
-    bool pWord = Check(word,'p');
-    bool oWord = Check(word,'o');
-    bool kWord = Check(word,'k');
-  if (sWord){
-    return 's';
-  }else if(pWord){
-    return 'p';
-  }else if(oWord){
-    return 'o';
-  }else if(kWord){
-    return 'k';
+  if (Check(word,'s')){
+    return 'S';
+  }else if(Check(word,'p')){
+    return 'P';
+  }else if(Check(word,'o')){
+    return 'O';
+  }else if(Check(word,'k')){
+    return 'K';
   }else{
     return 'e';
   }
@@ -54,7 +53,7 @@ char tokenRecognizer(string word){
 
 vector<char> convert(vector<string> v){
     vector<char> c;
-    for(int i = 0l i < v.size(); i++){
+    for(int i = 0; i < v.size(); i++){
         c.push_back(tokenRecognizer(v[i]));
     }
     return c;
@@ -67,7 +66,7 @@ void showAllWords(vector<string> v){
 
 void showAllChar(vector<char> c){
     for(int i = 0; i < c.size(); i++){
-        cout << 
+        cout << c[i] << " ";
     }
 }
 
@@ -90,6 +89,61 @@ vector<string> tokenizer(string sentence){
     return words;
 }
 
+char state;
+stack<char> sc;
+bool pushDownA(vector<char> vc){
+    state = 'i';
+    sc.push('#'); 
+    state = 'p';
+    sc.push('S');
+    state = 'q';
+    for (int i=0; i < vc.size(); i++){
+        //cout << endl;
+        //cout << vc[i] << " ";
+        if ((vc[i] == 'S')&&('S' == sc.top())){
+            sc.pop();
+            //cout << " S popped ";
+            sc.push('P'); 
+            //cout << " P pushed ";
+        }else if ((vc[i] == 'P')&&('P' == sc.top())){
+            sc.pop();
+            //cout << " P popped ";
+            if(i < (vc.size()-1)){
+                if (vc[i+1] == 'O'){
+                    sc.push('O');
+                    //cout << " O pushed ";
+                }else if (vc[i+1] == 'K'){
+                    sc.push('K');
+                    //cout << " K pushed ";
+                }
+            }
+        }else if ((vc[i] == 'O') && ('O'== sc.top())){
+            sc.pop();
+            //cout << " O popped ";
+            if(i < (vc.size()-1)){
+                if(vc[i+1] == 'K'){
+                    sc.push('K');
+                    //cout << " K pushed ";
+                }
+            }
+        }else if ((vc[i] == 'K')&&('K' == sc.top())){
+            sc.pop();
+            //cout << " K popped ";
+        }else{
+            sc.push(vc[i]);
+        }
+    }
+    if(sc.top() == '#'){
+        state = 'f';
+        return true;
+    }else{
+        return false;
+    }
+}
+
+
+
+
 
 int main()
 {
@@ -108,6 +162,13 @@ int main()
     string sentence;
     cout << "Please input your sentence about vehicle below!!" << endl;
     getline(cin,sentence);
-    pushDownA(sentence);
+    vector<string> tokenized = tokenizer(sentence);
+    vector<char> spoked = convert(tokenized);
+    showAllChar(spoked);
+    if(pushDownA(spoked)){
+        cout << endl << " KALIMAT DI TERIMA";
+    }else{
+        cout << endl << " KALIMAT DI TOLAK";
+    }
     return 0;
 }
