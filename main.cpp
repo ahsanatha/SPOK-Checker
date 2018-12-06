@@ -18,7 +18,7 @@ bool Check(string word, char x){
         kamus[0]="perahu"; kamus[1]="mobil"; kamus[2]="motor"; kamus[3]="pesawat"; kamus[4]="kereta";
     }
     else if (x == 'k'){
-        kamus[0]="bekas"; kamus[1]="deflasi"; kamus[2]="baru"; kamus[3]="gajian"; kamus[4]="taman";
+        kamus[0]="bekas"; kamus[1]="baru"; kamus[2]="sekarang"; kamus[3]="besok"; kamus[4]="kemarin";
     }
     //membuat "po" sebagai pointer.
     int po = 0;
@@ -93,7 +93,7 @@ char state;
 stack<char> sc;
 bool pushDownA(vector<char> vc){
     state = 'i';
-    sc.push('#'); 
+    sc.push('#');
     state = 'p';
     sc.push('S');
     state = 'q';
@@ -103,7 +103,7 @@ bool pushDownA(vector<char> vc){
         if ((vc[i] == 'S')&&('S' == sc.top())){
             sc.pop();
             //cout << " S popped ";
-            sc.push('P'); 
+            sc.push('P');
             //cout << " P pushed ";
         }else if ((vc[i] == 'P')&&('P' == sc.top())){
             sc.pop();
@@ -145,31 +145,33 @@ bool pushDownA(vector<char> vc){
 
 
 
-
 int main()
 {
-    cout << "option of Subject" << endl;
+    cout << "kamus kata 'Subjek'" << endl;
     cout << "saya - kita - kamu - malih - aridi" << endl;
     cout<< " " <<endl;
-    cout << "option of Predicate" <<endl;
-    cout << "membeli - belanja - makan - berlari - pergi" << endl;
+    cout << "kamus kata 'Predikat'" <<endl;
+    cout << "membeli - mengendarai - meminjam - memperbaiki - menyewa" << endl;
     cout << " " << endl;
-    cout << "option of Object" << endl;
+    cout << "kamus kata 'Objek'" << endl;
     cout << "perahu - mobil - motor - pesawat - kereta" << endl;
     cout << " " << endl;
-    cout << "option of keterangan" << endl;
-    cout << "sejam - setiap hari - pada pagi hari - larut malam - di taman" << endl;
+    cout << "kamus kata 'Keterangan'" << endl;
+    cout << "bekas - baru - sekarang - besok - kemarin" << endl;
     cout << " " << endl;
     string sentence;
     cout << "Please input your sentence about vehicle below!!" << endl;
     getline(cin,sentence);
     vector<string> tokenized = tokenizer(sentence);
     vector<char> spoked = convert(tokenized);
-    showAllChar(spoked);
+    std::cout << "" << '\n';
     if(pushDownA(spoked)){
-        cout << endl << " KALIMAT DI TERIMA";
+        cout <<"KALIMAT DI TERIMA" << endl;
     }else{
-        cout << endl << " KALIMAT DI TOLAK";
+        cout << "KALIMAT DI TOLAK" << endl;
     }
+cout<<endl;
+    cout << "struktur kalimat : ";
+    showAllChar(spoked);
     return 0;
 }
